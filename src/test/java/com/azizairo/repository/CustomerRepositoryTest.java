@@ -30,11 +30,11 @@ class CustomerRepositoryTest extends AbstractContainerBaseTest {
 
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
-        Customer customer = new Customer(
-                FAKER.name().fullName(),
-                email,
-                20
-        );
+        Customer customer = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(email)
+                .age(20)
+                .build();
 
         customer = underTest.save(customer);
 

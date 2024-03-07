@@ -42,11 +42,12 @@ public class Main {
             var name = faker.name();
             var firstName = name.firstName();
             var lastName = name.lastName();
-            Customer customer = new Customer(
-                    firstName,
-                    firstName.toLowerCase(Locale.ROOT) + "." + lastName.toLowerCase(Locale.ROOT) + "@gmail.com",
-                    new Random().nextInt(16, 99)
-            );
+
+            Customer customer = Customer.builder()
+                    .name(firstName)
+                    .email(firstName.toLowerCase(Locale.ROOT) + "." + lastName.toLowerCase(Locale.ROOT) + "@gmail.com")
+                    .age(new Random().nextInt(16, 99))
+                    .build();
             customerRepository.save(customer);
         };
     }

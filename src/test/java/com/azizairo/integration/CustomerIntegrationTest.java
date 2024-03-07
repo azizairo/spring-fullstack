@@ -71,9 +71,11 @@ public class CustomerIntegrationTest {
                 .returnResult()
                 .getResponseBody();
 
-        Customer expectedCustomer = new Customer(
-                name, email, age
-        );
+        Customer expectedCustomer = Customer.builder()
+                .name(name)
+                .email(email)
+                .age(age)
+                .build();
 
         Long id = allCustomers
                 .stream()

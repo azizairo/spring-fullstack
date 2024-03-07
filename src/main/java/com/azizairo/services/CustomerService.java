@@ -46,11 +46,11 @@ public class CustomerService {
             throw new DuplicateResourceException(  "Customer already exists!");
         } else {
             customerDao.insertCustomer(
-                    new Customer(
-                            customerRegistrationRequest.name(),
-                            customerRegistrationRequest.email(),
-                            customerRegistrationRequest.age()
-                    )
+                    Customer.builder()
+                            .name(customerRegistrationRequest.name())
+                            .email(customerRegistrationRequest.email())
+                            .age(customerRegistrationRequest.age())
+                            .build()
             );
         }
     }

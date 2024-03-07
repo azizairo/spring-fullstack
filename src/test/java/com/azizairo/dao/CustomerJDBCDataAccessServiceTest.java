@@ -29,11 +29,12 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
     void shouldFindAllSuccessfully() {
 
         //Given
-        Customer customer = new Customer(
-                FAKER.name().fullName(),
-                FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID(),
-                20
-        );
+        Customer customer = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID())
+                .age(20)
+                .build();
+
         underTest.insertCustomer(customer);
 
         //When
@@ -47,11 +48,12 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
     void shouldFindByIdSuccessfully() {
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
-        Customer expected = new Customer(
-                FAKER.name().fullName(),
-                email,
-                20
-        );
+
+        Customer expected = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(email)
+                .age(20)
+                .build();
 
         underTest.insertCustomer(expected);
 
@@ -103,11 +105,11 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
         String name = FAKER.name().fullName();
-        Customer customer = new Customer(
-            name,
-            email,
-            20
-        );
+        Customer customer = Customer.builder()
+                .name(name)
+                .email(email)
+                .age(20)
+                .build();
 
         underTest.insertCustomer(customer);
 
@@ -136,11 +138,11 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
 
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
-        Customer customer = new Customer(
-            FAKER.name().fullName(),
-            email,
-            20
-        );
+        Customer customer = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(email)
+                .age(20)
+                .build();
 
         underTest.insertCustomer(customer);
 
@@ -176,11 +178,12 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
 
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
-        Customer customer = new Customer(
-            FAKER.name().fullName(),
-            email,
-            20
-        );
+        Customer customer = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(email)
+                .age(20)
+                .build();
+
         underTest.insertCustomer(customer);
 
         Long id = underTest.findAll()
@@ -203,11 +206,11 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
 
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
-        Customer initial = new Customer(
-                FAKER.name().fullName(),
-                email,
-                20
-        );
+        Customer initial = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(email)
+                .age(20)
+                .build();
 
         underTest.insertCustomer(initial);
         Long id = underTest.findAll()
@@ -241,11 +244,11 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
 
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
-        Customer initial = new Customer(
-                FAKER.name().fullName(),
-                email,
-                20
-        );
+        Customer initial = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(email)
+                .age(20)
+                .build();
 
         underTest.insertCustomer(initial);
         Long id = underTest.findAll()
@@ -280,11 +283,11 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
 
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
-        Customer initial = new Customer(
-                FAKER.name().fullName(),
-                email,
-                20
-        );
+        Customer initial = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(email)
+                .age(20)
+                .build();
 
         underTest.insertCustomer(initial);
         Long id = underTest.findAll()
@@ -319,11 +322,11 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
 
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
-        Customer initial = new Customer(
-                FAKER.name().fullName(),
-                email,
-                20
-        );
+        Customer initial = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(email)
+                .age(20)
+                .build();
 
         underTest.insertCustomer(initial);
         Long id = underTest.findAll()
@@ -352,11 +355,11 @@ class CustomerJDBCDataAccessServiceTest extends AbstractContainerBaseTest {
 
         //Given
         String email = FAKER.internet().safeEmailAddress() + "-" + UUID.randomUUID();
-        Customer initial = new Customer(
-                FAKER.name().fullName(),
-                email,
-                20
-        );
+        Customer initial = Customer.builder()
+                .name(FAKER.name().fullName())
+                .email(email)
+                .age(20)
+                .build();
 
         underTest.insertCustomer(initial);
         Long id = underTest.findAll()
