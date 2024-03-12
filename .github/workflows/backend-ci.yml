@@ -10,6 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     services:
       postgres:
         image: postgres:16.1
@@ -23,12 +24,15 @@ jobs:
           --health-cmd pg_isready
           --health-interval 10s
           --health-timeout 5s
-          --health-reties 5
+          --health-retries 5
     defaults:
       run:
         working-directory: ./backend
+
     steps:
       - uses: actions/checkout@v4
+      - name: Login to Dockerhub Registry
+        run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
