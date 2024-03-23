@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "spring-fullstack-api",
-      "image": "azizairo/spring-fullstack:16.03.2024.23.51.12",
+      "image": "azizairo/spring-fullstack:23.03.2024.17.40.19",
       "essential": true,
       "memory": 512,
       "portMappings": [
